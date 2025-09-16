@@ -1,0 +1,183 @@
+=== STARLIGHT CINEMA RESERVATION SYSTEM ===
+
+=== PROBLEM 1: QUEUE INITIALIZATION ===
+
+====== STARLIGHT CINEMA STATUS ======
+Total Tickets Sold: 0
+Total Revenue: $0.00
+
+--- Regular QUEUE (Size: 0) ---
+Queue is empty.
+
+--- VIP QUEUE (Size: 0) ---
+Queue is empty.
+
+--- Premium QUEUE (Size: 0) ---
+Queue is empty.
+=====================================
+
+Processing ticket sale: John Doe - Avatar: The Way of Water (Regular)
+Processing ticket sale: Maria Santos - Top Gun: Maverick (VIP)
+Processing ticket sale: Carlos Rodriguez - Black Panther: Wakanda Forever (Premium)
+Processing ticket sale: Ana Garcia - Avatar: The Way of Water (Regular)
+Processing ticket sale: Roberto Martinez - Top Gun: Maverick (VIP)
+
+====== STARLIGHT CINEMA STATUS ======
+Total Tickets Sold: 0
+Total Revenue: $1100.00
+
+--- Regular QUEUE (Size: 2) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   John Doe             Avatar: The Way of Water  A15        1001     25     $250.00
+2   Ana Garcia           Avatar: The Way of Water  D05        1004     22     $250.00
+
+--- VIP QUEUE (Size: 2) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Maria Santos         Top Gun: Maverick         B20        1002     65     $450.00
+2   Roberto Martinez     Top Gun: Maverick         VIP-02     1005     70     $450.00
+
+--- Premium QUEUE (Size: 1) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Carlos Rodriguez     Black Panther: Wakanda Forever C10  1003     30     $350.00
+=====================================
+
+Press any key to continue...
+
+=== PROBLEM 2: TICKET PROCESSING ===
+
+Processing customer: John Doe from Regular queue
+Ticket processed successfully! Enjoy your movie.
+
+Processing customer: Ana Garcia from Regular queue  
+Ticket processed successfully! Enjoy your movie.
+
+Processing customer: Maria Santos from VIP queue
+Ticket processed successfully! Enjoy your movie.
+
+Processing customer: Carlos Rodriguez from Premium queue
+Ticket processed successfully! Enjoy your movie.
+
+====== STARLIGHT CINEMA STATUS ======
+Total Tickets Sold: 4
+Total Revenue: $1100.00
+
+--- Regular QUEUE (Size: 0) ---
+Queue is empty.
+
+--- VIP QUEUE (Size: 1) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Roberto Martinez     Top Gun: Maverick         VIP-02     1005     70     $450.00
+
+--- Premium QUEUE (Size: 0) ---
+Queue is empty.
+=====================================
+
+Avatar: The Way of Water tickets in Regular queue: 0
+
+Processing ticket sale: Sofia Lopez - Spider-Man: No Way Home (Premium)
+Processing ticket sale: Diego Hernandez - Avatar: The Way of Water (Regular)
+Processing ticket sale: Isabella Cruz - Black Panther: Wakanda Forever (VIP)
+
+====== STARLIGHT CINEMA STATUS ======
+Total Tickets Sold: 4
+Total Revenue: $2050.00
+
+--- Regular QUEUE (Size: 1) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Diego Hernandez      Avatar: The Way of Water  A25        1007     35     $250.00
+
+--- VIP QUEUE (Size: 2) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Roberto Martinez     Top Gun: Maverick         VIP-02     1005     70     $450.00
+2   Isabella Cruz        Black Panther: Wakanda Forever VIP-15 1008   19     $450.00
+
+--- Premium QUEUE (Size: 1) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Sofia Lopez          Spider-Man: No Way Home   PREM-08    1006     28     $350.00
+=====================================
+
+Press any key to continue...
+
+=== PROBLEM 3: ADVANCED OPERATIONS ===
+
+Transferring priority customers (age 60+) to VIP queue...
+Transferred 1 senior customers to VIP queue.
+
+====== STARLIGHT CINEMA STATUS ======
+Total Tickets Sold: 4
+Total Revenue: $2050.00
+
+--- Regular QUEUE (Size: 1) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Diego Hernandez      Avatar: The Way of Water  A25        1007     35     $250.00
+
+--- VIP QUEUE (Size: 2) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Roberto Martinez     Top Gun: Maverick         VIP-02     1005     70     $450.00
+2   Isabella Cruz        Black Panther: Wakanda Forever VIP-15 1008   19     $450.00
+
+--- Premium QUEUE (Size: 0) ---
+Queue is empty.
+=====================================
+
+Cancelling ticket with ID: 1004
+Ticket ID 1004 not found in any queue.
+
+====== STARLIGHT CINEMA STATUS ======
+Total Tickets Sold: 4
+Total Revenue: $2050.00
+
+--- Regular QUEUE (Size: 1) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Diego Hernandez      Avatar: The Way of Water  A25        1007     35     $250.00
+
+--- VIP QUEUE (Size: 2) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Roberto Martinez     Top Gun: Maverick         VIP-02     1005     70     $450.00
+2   Isabella Cruz        Black Panther: Wakanda Forever VIP-15 1008   19     $450.00
+
+--- Premium QUEUE (Size: 0) ---
+Queue is empty.
+=====================================
+
+Tickets for Roberto Martinez:
+- Ticket ID: 1005, Movie: Top Gun: Maverick, Seat: VIP-02, Price: $450.00
+
+Processing customer: Roberto Martinez from VIP queue
+Ticket processed successfully! Enjoy your movie.
+
+Processing customer: Isabella Cruz from VIP queue
+Ticket processed successfully! Enjoy your movie.
+
+VIP queue is now empty.
+
+====== STARLIGHT CINEMA STATUS ======
+Total Tickets Sold: 6
+Total Revenue: $2050.00
+
+--- Regular QUEUE (Size: 1) ---
+Pos Customer             Movie                     Seat       ID       Age    Price
+-----------------------------------------------------------------------
+1   Diego Hernandez      Avatar: The Way of Water  A25        1007     35     $250.00
+
+--- VIP QUEUE (Size: 0) ---
+Queue is empty.
+
+--- Premium QUEUE (Size: 0) ---
+Queue is empty.
+=====================================
+
+Press any key to continue...
+
+=== END OF CINEMA OPERATIONS ===

@@ -1,0 +1,231 @@
+TEST 1: Empty Queue Operations
+======================================
+Pipeline initialized. Size: 0
+Is Empty: YES | Is Full: NO
+ERROR: Cannot dequeue from empty pipeline!
+ERROR: Cannot peek from empty pipeline!
+ERROR: No batches to process - pipeline is empty!
+
+========= TRAINING PIPELINE STATUS =========
+Pipeline Capacity: 5
+Current Size: 0
+Front Index: -1 | Rear Index: -1
+Pipeline is currently EMPTY
+==========================================
+
+
+
+TEST 2: Single Element Operations
+======================================
+Batch 100 successfully added to pipeline!
+After adding one batch:
+Size: 1 | Empty: NO | Full: NO
+Peeked Batch ID: 100 (Size after peek: 1)
+Processing Batch 100... Status: PROCESSING
+Removed Batch ID: 100 (Size after removal: 0)
+Is Empty after removal: YES
+
+
+TEST 3: Full Queue Operations
+======================================
+Filling pipeline to capacity...
+Batch 1 successfully added to pipeline!
+Batch 2 successfully added to pipeline!  
+Batch 3 successfully added to pipeline!
+Batch 4 successfully added to pipeline!
+Batch 5 successfully added to pipeline!
+Pipeline Status: Size=5 | Full=YES
+ERROR: Pipeline is full! Cannot add batch 99
+
+========= TRAINING PIPELINE STATUS =========
+Pipeline Capacity: 5
+Current Size: 5
+Front Index: 0 | Rear Index: 4
+
+Position BatchID    Status       Samples
+------------------------------------------
+0        1          PENDING      23
+1        2          PENDING      18
+2        3          PENDING      15
+3        4          PENDING      27
+4        5          PENDING      12
+==========================================
+
+Processing Batch 1... Status: PROCESSING
+Removed batch 1. Pipeline now Full: NO
+Batch 88 successfully added to pipeline!
+
+TEST 4: Circular Array Wraparound
+======================================
+Batch 1 successfully added to pipeline!
+Batch 2 successfully added to pipeline!
+Batch 3 successfully added to pipeline!
+After adding 3 batches:
+
+========= TRAINING PIPELINE STATUS =========
+Pipeline Capacity: 5
+Current Size: 3
+Front Index: 0 | Rear Index: 2
+
+Position BatchID    Status       Samples
+------------------------------------------
+0        1          PENDING      23
+1        2          PENDING      18
+2        3          PENDING      15
+==========================================
+
+Processing Batch 1... Status: PROCESSING
+Removed batch 1
+Processing Batch 2... Status: PROCESSING  
+Removed batch 2
+After removing 2 batches:
+
+========= TRAINING PIPELINE STATUS =========
+Pipeline Capacity: 5
+Current Size: 1
+Front Index: 2 | Rear Index: 2
+
+Position BatchID    Status       Samples
+------------------------------------------
+2        3          PENDING      15
+==========================================
+
+Batch 4 successfully added to pipeline!
+Batch 5 successfully added to pipeline!
+Batch 6 successfully added to pipeline!
+Batch 7 successfully added to pipeline!
+After adding 4 more batches (wraparound test):
+
+========= TRAINING PIPELINE STATUS =========
+Pipeline Capacity: 5
+Current Size: 5
+Front Index: 2 | Rear Index: 1
+
+Position BatchID    Status       Samples
+------------------------------------------
+2        3          PENDING      15
+3        4          PENDING      27
+4        5          PENDING      12
+0        6          PENDING      29  ← WRAPAROUND!
+1        7          PENDING      16  ← WRAPAROUND!
+==========================================
+
+TEST 5: Fill-Empty-Fill Cycle
+======================================
+CYCLE 1: Filling completely...
+Batch 1 successfully added to pipeline!
+Batch 2 successfully added to pipeline!
+Batch 3 successfully added to pipeline! 
+Batch 4 successfully added to pipeline!
+Batch 5 successfully added to pipeline!
+Cycle 1 Complete - Size: 5, Full: YES
+
+CYCLE 1: Emptying completely...
+Processing Batch 1... Status: PROCESSING
+Removed batch 1
+Processing Batch 2... Status: PROCESSING
+Removed batch 2
+Processing Batch 3... Status: PROCESSING  
+Removed batch 3
+Processing Batch 4... Status: PROCESSING
+Removed batch 4
+Processing Batch 5... Status: PROCESSING
+Removed batch 5
+Cycle 1 Empty - Size: 0, Empty: YES
+
+CYCLE 2: Filling again...
+Batch 10 successfully added to pipeline!
+Batch 11 successfully added to pipeline!
+Batch 12 successfully added to pipeline!
+Batch 13 successfully added to pipeline!
+Batch 14 successfully added to pipeline!
+
+========= TRAINING PIPELINE STATUS =========
+Pipeline Capacity: 5
+Current Size: 5
+Front Index: 0 | Rear Index: 4
+
+Position BatchID    Status       Samples
+------------------------------------------
+0        10         PENDING      23
+1        11         PENDING      18
+2        12         PENDING      15
+3        13         PENDING      27
+4        14         PENDING      12
+==========================================
+
+
+
+TEST 6: Batch Processing - All Success Scenario
+======================================
+Batch 1 successfully added to pipeline!
+Batch 2 successfully added to pipeline!
+Batch 3 successfully added to pipeline!
+Processing all batches (success scenario)...
+✓ Batch 1 completed successfully! (Accuracy: 89.45%)
+✓ Batch 2 completed successfully! (Accuracy: 92.15%) 
+✓ Batch 3 completed successfully! (Accuracy: 88.73%)
+
+========= ML TRAINING METRICS =========
+Model: Test-AllSuccess
+Total Batches: 3
+Processed: 3
+Failed: 0
+Success Rate: 100.00%
+Average Accuracy: 90.11%
+======================================
+
+========= PIPELINE VALIDATION =========
+✓ Pipeline validation completed
+✓ No batches stuck in processing
+✓ All batches processed successfully
+✓ Pipeline is ready for next training cycle
+======================================
+
+
+
+
+TEST 7: Batch Processing - All Failure Scenario
+======================================
+Batch -1 successfully added to pipeline!
+Batch -1 successfully added to pipeline!
+Batch -1 successfully added to pipeline!
+Processing invalid batches (failure scenario)...
+✗ Batch -1 failed during processing! (Error: Invalid batch data)
+✗ Batch -1 failed during processing! (Error: Invalid batch data)
+✗ Batch -1 failed during processing! (Error: Invalid batch data)
+
+========= ML TRAINING METRICS =========
+Model: Test-AllFailure
+Total Batches: 3
+Processed: 3
+Failed: 3
+Success Rate: 0.00%
+Average Accuracy: 0.00%
+======================================
+
+========= PIPELINE VALIDATION =========
+⚠ Pipeline validation completed
+⚠ Found issues: 3 batches failed processing
+⚠ Recommend: Check data quality and preprocessing steps
+⚠ Pipeline needs attention before next cycle
+======================================
+
+
+
+
+TEST 8: Mixed Processing Results
+======================================
+Batch 1 successfully added to pipeline!
+Batch 2 successfully added to pipeline!
+Batch -1 successfully added to pipeline!
+Batch 4 successfully added to pipeline!
+Batch 5 successfully added to pipeline!
+Processing mixed batches...
+✓ Batch 1 completed successfully! (Accuracy: 89.45%)
+✓ Batch 2 completed successfully! (Accuracy: 92.15%)
+✗ Batch -1 failed during processing! (Error: Invalid batch data)
+✓ Batch 4 completed successfully! (Accuracy: 87.32%)
+✓ Batch 5 completed successfully! (Accuracy: 90.88%)
+
+=========

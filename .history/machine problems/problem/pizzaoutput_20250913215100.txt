@@ -1,0 +1,240 @@
+🍕 ============================================== 🍕
+    WELCOME TO TONY'S PIZZERIA SIMULATOR!
+   Testing Pizza Oven Queue Management System
+🍕 ============================================== 🍕
+
+🔥 TEST 1: Empty Kitchen - Opening Time!
+================================================
+
+No orders to cook!
+No orders waiting!
+Kitchen is empty! No orders to cook!
+
+🔥 ========= Tony's Wood-Fired Oven #1 STATUS ========= 🔥
+Oven Capacity: 6 orders
+Current Orders: 0
+Next to Cook: Position -1 | Last Added: Position -1
+🍕 Oven is empty - ready for orders!
+🔥 ========================================= 🔥
+
+🍕 Press any key to continue to lunch rush...
+
+🍕 TEST 2: First Customer of the Day!
+=======================================
+
+[CustomerName]'s [PizzaType] added to oven queue!
+Oven size: 1, Empty: 0, Full: 0
+Next order: [CustomerName] - [PizzaType]
+Oven size after checking: 1
+Started cooking [CustomerName]'s [PizzaType]!
+Oven is now empty after starting to cook
+
+🍕 Press any key for the lunch rush...
+
+🔥 TEST 3: LUNCH RUSH - Oven at Full Capacity!
+==============================================
+
+[Customer1]'s [Pizza1] added to oven queue!
+[Customer2]'s [Pizza2] added to oven queue!
+[Customer3]'s [Pizza3] added to oven queue!
+[Customer4]'s [Pizza4] added to oven queue!
+[Customer5]'s [Pizza5] added to oven queue!
+[Customer6]'s [Pizza6] added to oven queue!
+
+LUNCH RUSH IN PROGRESS!
+Oven is full: 1
+Oven is full! Please wait, [CustomerName]!
+
+🔥 ========= Tony's Wood-Fired Oven #1 STATUS ========= 🔥
+Oven Capacity: 6 orders
+Current Orders: 6
+Next to Cook: Position 0 | Last Added: Position 5
+
+Position Customer        Pizza           Size       Price    Status
+----------------------------------------------------------------
+0        [Customer1]     [Pizza1]        [Size]     $[Price] WAITING
+1        [Customer2]     [Pizza2]        [Size]     $[Price] WAITING
+2        [Customer3]     [Pizza3]        [Size]     $[Price] WAITING
+3        [Customer4]     [Pizza4]        [Size]     $[Price] WAITING
+4        [Customer5]     [Pizza5]        [Size]     $[Price] WAITING
+5        [Customer6]     [Pizza6]        [Size]     $[Price] WAITING
+🔥 ========================================= 🔥
+
+Started cooking [Customer1]'s [Pizza1]!
+Oven is no longer full: 0
+[CustomerName]'s [PizzaType] added to oven queue!
+
+🍕 Press any key for the evening complexity...
+
+🌆 TEST 4: Evening Rush - Orders Wrapping Around!
+===============================================
+
+Alice's [Pizza] added to oven queue!
+Bob's [Pizza] added to oven queue!
+Charlie's [Pizza] added to oven queue!
+
+🔥 ========= Tony's Wood-Fired Oven #1 STATUS ========= 🔥
+Oven Capacity: 6 orders
+Current Orders: 3
+Next to Cook: Position 0 | Last Added: Position 2
+
+Position Customer        Pizza           Size       Price    Status
+----------------------------------------------------------------
+0        Alice           [Pizza]         [Size]     $[Price] WAITING
+1        Bob             [Pizza]         [Size]     $[Price] WAITING
+2        Charlie         [Pizza]         [Size]     $[Price] WAITING
+🔥 ========================================= 🔥
+
+Started cooking Alice's [Pizza]!
+Started cooking Bob's [Pizza]!
+
+[Customer104]'s [Pizza] added to oven queue!
+[Customer105]'s [Pizza] added to oven queue!
+[Customer106]'s [Pizza] added to oven queue!
+[Customer107]'s [Pizza] added to oven queue!
+
+🔥 ========= Tony's Wood-Fired Oven #1 STATUS ========= 🔥
+Oven Capacity: 6 orders
+Current Orders: 5
+Next to Cook: Position 2 | Last Added: Position 0
+
+Position Customer        Pizza           Size       Price    Status
+----------------------------------------------------------------
+2        Charlie         [Pizza]         [Size]     $[Price] WAITING
+3        [Customer104]   [Pizza]         [Size]     $[Price] WAITING
+4        [Customer105]   [Pizza]         [Size]     $[Price] WAITING
+5        [Customer106]   [Pizza]         [Size]     $[Price] WAITING
+0        [Customer107]   [Pizza]         [Size]     $[Price] WAITING
+🔥 ========================================= 🔥
+
+🍕 Press any key for the late night cycle...
+
+🌙 TEST 5: Late Night - Close and Reopen Cycle
+=============================================
+
+[Customer1]'s [Pizza] added to oven queue!
+[Customer2]'s [Pizza] added to oven queue!
+[Customer3]'s [Pizza] added to oven queue!
+[Customer4]'s [Pizza] added to oven queue!
+[Customer5]'s [Pizza] added to oven queue!
+[Customer6]'s [Pizza] added to oven queue!
+
+Started cooking [Customer1]'s [Pizza]!
+Started cooking [Customer2]'s [Pizza]!
+Started cooking [Customer3]'s [Pizza]!
+Started cooking [Customer4]'s [Pizza]!
+Started cooking [Customer5]'s [Pizza]!
+Started cooking [Customer6]'s [Pizza]!
+
+Oven is empty after closing: 1
+
+[NewCustomer1]'s [Pizza] added to oven queue!
+[NewCustomer2]'s [Pizza] added to oven queue!
+[NewCustomer3]'s [Pizza] added to oven queue!
+[NewCustomer4]'s [Pizza] added to oven queue!
+[NewCustomer5]'s [Pizza] added to oven queue!
+[NewCustomer6]'s [Pizza] added to oven queue!
+
+Second opening successful - all new orders added correctly
+
+🍕 Press any key for perfect day scenario...
+
+⭐ TEST 6: Perfect Day - All Orders Perfect!
+==========================================
+
+[Customer1]'s [Pizza] added to oven queue!
+[Customer2]'s [Pizza] added to oven queue!
+[Customer3]'s [Pizza] added to oven queue!
+
+Started cooking [Customer1]'s [Pizza]!
+🍕 SUCCESS! [Customer1] loves their [Pizza]! 😊
+Started cooking [Customer2]'s [Pizza]!
+🍕 SUCCESS! [Customer2] loves their [Pizza]! 😊
+Started cooking [Customer3]'s [Pizza]!
+🍕 SUCCESS! [Customer3] loves their [Pizza]! 😊
+
+📊 ========= Tony's Pizzeria - DAILY REPORT ========= 📊
+Total Orders: 3
+Completed Orders: 3 ✅
+Cancelled Orders: 0 ❌
+Success Rate: 100.0%
+Customer Satisfaction: 😃 EXCELLENT!
+Total Revenue: $[TotalAmount] 💰
+Happy Customers: 3 😊
+Average Cooking Time: [AvgTime] minutes ⏱️
+📊 ================================================= 📊
+
+✅ Kitchen is clean and ready!
+
+🍕 Press any key for disaster day...
+
+💥 TEST 7: Disaster Day - Everything Goes Wrong!
+===============================================
+
+Difficult Customer's Impossible Pizza added to oven queue!
+Difficult Customer's Impossible Pizza added to oven queue!
+Difficult Customer's Impossible Pizza added to oven queue!
+
+Started cooking Difficult Customer's Impossible Pizza!
+💥 DISASTER! Difficult Customer's pizza burnt to a crisp! 😞
+Started cooking Difficult Customer's Impossible Pizza!
+💥 DISASTER! Difficult Customer's pizza burnt to a crisp! 😞
+Started cooking Difficult Customer's Impossible Pizza!
+💥 DISASTER! Difficult Customer's pizza burnt to a crisp! 😞
+
+📊 ========= Tony's Pizzeria (Bad Day) - DAILY REPORT ========= 📊
+Total Orders: 3
+Completed Orders: 0 ✅
+Cancelled Orders: 3 ❌
+Success Rate: 0.0%
+Customer Satisfaction: 😞 Needs Improvement
+Total Revenue: $0.00 💰
+Happy Customers: 0 😊
+Average Cooking Time: 25.0 minutes ⏱️
+📊 ================================================= 📊
+
+⚠️ KITCHEN PROBLEMS DETECTED! ⚠️
+- 3 orders were cancelled due to kitchen issues
+- Customer satisfaction is critically low!
+- Consider staff retraining and equipment maintenance
+
+🍕 Press any key for realistic busy day...
+
+📊 TEST 8: Realistic Busy Day - Mixed Results
+============================================
+
+[Customer1]'s [Pizza] added to oven queue!
+[Customer2]'s [Pizza] added to oven queue!
+VIP Customer's [Pizza] added to oven queue!
+Difficult Customer's Impossible Pizza added to oven queue!
+[Customer5]'s [Pizza] added to oven queue!
+
+Started cooking [Customer1]'s [Pizza]!
+🍕 SUCCESS! [Customer1] loves their [Pizza]! 😊
+Started cooking [Customer2]'s [Pizza]!
+🍕 SUCCESS! [Customer2] loves their [Pizza]! 😊
+Started cooking VIP Customer's [Pizza]!
+⭐ VIP SUCCESS! VIP Customer is delighted! Bonus tip received! 😄
+Started cooking Difficult Customer's Impossible Pizza!
+💥 DISASTER! Difficult Customer's pizza burnt to a crisp! 😞
+Started cooking [Customer5]'s [Pizza]!
+🍕 SUCCESS! [Customer5] loves their [Pizza]! 😊
+
+📊 ========= Tony's Pizzeria (Typical Day) - DAILY REPORT ========= 📊
+Total Orders: 5
+Completed Orders: 4 ✅
+Cancelled Orders: 1 ❌
+Success Rate: 80.0%
+Customer Satisfaction: 🙂 Good
+Total Revenue: $[TotalAmount] 💰
+Happy Customers: 4 😊
+Average Cooking Time: [AvgTime] minutes ⏱️
+📊 ================================================= 📊
+
+✅ Kitchen operations are running smoothly!
+- 4 successful orders completed
+- 1 order had issues but overall performance is good
+- Keep up the good work!
+
+🍕 === PIZZERIA SIMULATION COMPLETED! === 🍕
+Thanks for managing Tony's Pizzeria!

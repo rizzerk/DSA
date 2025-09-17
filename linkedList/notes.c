@@ -34,7 +34,7 @@ int main(void)
 	display(list);
 	
 	deleteMults(&list, 2);
-	getch();
+	getchar();
 	system("CLS");
 	display(list);
 	

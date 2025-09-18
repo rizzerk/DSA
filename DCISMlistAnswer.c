@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 0xA
 
@@ -49,3 +50,45 @@ and put them in a newly created combo list of student records. The newly created
 returned to the calling function. No other user-defined function is created except function createList(). 
 Assume that there is enough space in memory for all the records.
 */
+
+ComboList createList(LinkList D)
+{
+    ComboList dcism;
+    LinkList *trav, temp;
+    //Initialize ComboList
+    //initializes the CS list
+    dcism.CS = NULL;
+    //Blank_C and Blank_D initialize the IT list
+    dcism.IT = (ArrayList)maloc(sizeof(struct cell));
+    dcism.IT->ctr = 0;
+    //BLANK_D
+
+    for(trav = D; *trav != NULL;){
+    //BLANK_E detrmines if record is owned by a computer science student
+    //BLANK_F determines if record is owned by an information technology student
+
+    if(strcmp((*trav)->stud.course,  "BSCS") == 0 || strcmp((*trav)->stud.course,  "BSIT") == 0){
+        temp = *trav;
+        *trav = temp->link;
+
+        if(strcmp((*trav)->stud.course,  "BSCS") == 0){
+            //Blank_G and Blank_H insert the removed revord above to CS list in combo list and put in 1st position
+            temp->link = dcism.CS;
+            dcism.CS = temp;
+           
+        }else{
+            //Blank_I and Blank_J insert the removed record above to IT list and put in the last positon
+            //BLANK_I
+            dcism.IT->studs[dcism.IT->ctr] = temp->stud;
+            dcism.IT->ctr++;
+            free(temp);
+        }
+
+    }else{
+        trav = &(*trav)->link;
+    }
+
+}
+    return dcism;
+
+}

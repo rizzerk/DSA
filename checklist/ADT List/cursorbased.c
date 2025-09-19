@@ -120,18 +120,21 @@ void deleteFirst(cList *L, vHeap *VH) {
 
 void deleteLast(cList *L, vHeap *VH) {
     // Delete last element
-    if(L != -1){
+    if(*L != -1){
         cList *trav;
         for(trav = L; VH->elems[*trav].next != -1; trav = &VH->elems[*trav].next){}
-        int temp = *trav;
+        if(*trav != -1){
+            int temp = *trav;
         *trav = VH->elems[temp].next;
         deallocSpace(VH, temp);
+        }
+    
     }
 }
 
 void deleteAllOccur(cList *L, vHeap *VH, int elem) {
     // Delete all occurrences of elem
-    if(L != -1){
+    if(*L != -1){
         cList *trav;
         for(trav = L; *trav != -1;){
             if(VH->elems[*trav].data == elem){
@@ -148,7 +151,6 @@ void deleteAllOccur(cList *L, vHeap *VH, int elem) {
 }
 
 int isMember(cList L, vHeap *VH, int elem) {
-    // Search for elem
     cList trav;
     for(trav = L; trav != -1 && VH->elems[trav].data != elem; trav = VH->elems[trav].next){}
     if(trav != -1){
@@ -159,7 +161,6 @@ int isMember(cList L, vHeap *VH, int elem) {
 }
 
 void display(cList L, vHeap *VH) {
-    // Display list elements
     for(int i = L; i != -1;  i = VH->elems[i].next){
         printf("%d ", VH->elems[i].data);
     }

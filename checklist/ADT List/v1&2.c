@@ -1,7 +1,4 @@
-/* Version 1: List is a structure containing an array and variable count
-                  Note: count represents the actual number of elements in the array
-                        If MAX is the size of the array, count <= MAX
-*/
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,13 +36,23 @@ int main() {
 }
 
 // Function definitions (YOU will write inside)
+
+//V1
 void initialize(List *L) {
-    // your code here
     L->count = 0;
 }
 
+//V2
+List* initialize() {
+    List * list = (List*)malloc(sizeof(List));
+    if(list != NULL){
+        list->count = 0;
+    }
+    return list; // placeholder
+}
+
+
 void insertFirst(List *L, int elem) {
-    // your code here
     if(L->count < MAX){
         int i;
        for(i= L->count; i > 0; i--){
@@ -57,7 +64,6 @@ void insertFirst(List *L, int elem) {
 }
 
 void insertLast(List *L, int elem) {
-    // your code here
     if(L->count < MAX){
         L->elems[L->count] = elem;
         L->count++;
@@ -66,7 +72,6 @@ void insertLast(List *L, int elem) {
 }
 
 void insertSorted(List *L, int elem) {
-    // your code here
     int i;
     if(L->count < MAX){
         for(i = 0; i < L->count && L->elems[i] < elem; i++){}
@@ -80,7 +85,6 @@ void insertSorted(List *L, int elem) {
 }
 
 void deleteFirst(List *L) {
-    // your code here
     if(L->count > 0){
         int i;
         for(i=0; i < L->count - 1; i++){
@@ -91,7 +95,6 @@ void deleteFirst(List *L) {
 }
 
 void deleteLast(List *L) {
-    // your code here
     if(L->count > 0){
         L->count--;
     }
@@ -114,18 +117,16 @@ void deleteAllOccur(List *L, int elem) {
 }
 
 int isMember(List L, int elem) {
-    // your code here
     int i;
     for(i = 0; i < L.count && L.elems[i] != elem; i ++){}
     if(i < L.count){
         return 1;
     }
 
-    return 0; // placeholder
+    return 0;
 }
 
 void display(List L) {
-    // your code here
     for(int i= 0 ; i < L.count; i++){
         printf("%d ", L.elems[i]);
     }

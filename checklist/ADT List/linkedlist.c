@@ -24,6 +24,7 @@ void deleteAllOccur(LinkedList *L, int elem);
 int isMember(LinkedList *L, int elem);
 void display(LinkedList *L);
 void freeList(LinkedList *L);
+void SortList(LinkedList *L);
 
 // Main function for testing
 int main() {
@@ -148,4 +149,23 @@ void freeList(LinkedList *L) {
     }
     L->head = NULL;
     L->count = 0;
+}
+
+
+//selectionsort
+void SortList(LinkedList *L){
+    for(Node *i = L->head; i != NULL; i = i->next){
+        Node *min = i;
+        for(Node *j = i; j != NULL; j = j->next){
+            if(j->data < i->data){
+                min = j;
+            }
+        }
+
+        if(min != i){
+            int temp = i->data;
+            i->data = min->data;
+            min->data =temp; 
+        }
+    }
 }

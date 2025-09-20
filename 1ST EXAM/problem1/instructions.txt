@@ -1,0 +1,42 @@
+[E1] DSA In Your Arms - "You wrap me around..."
+by Gran Sabandal
+
+Background
+You are required to implement ONLY the enqueue and dequeue functions for a circular queue data structure that uses front and length instead of front and rear.
+
+ 
+
+Queue Behavior Rules
+IMPORTANT: This implementation uses a different approach from the traditional front/rear method:
+
+Empty State Convention: When the queue is empty: length = 0 (front can be any value)
+Full State Convention: When the queue is full: length = MAX_SIZE
+Tail Calculation: The tail (insertion point) is calculated as: (front + length) % MAX_SIZE
+This means you never store the tail - it's always computed when needed
+Single Element State: When the queue contains exactly one element: length = 1
+Circular Behavior: Use modulo arithmetic for wraparound: (index) % MAX_SIZE
+No Special Reset Required: When queue becomes empty, just set length = 0 (front stays as is)
+ 
+
+Given Helper Functions (Using this will not guarantee full credit points)
+The following functions are already implemented and available for use:
+
+Queue newQueue(); // Initializes queue as an empty state
+
+bool isEmpty(Queue q); // Returns true if queue is empty
+
+bool isFull(Queue q); // Returns true if queue is full
+
+void makeEmpty(Queue *q); // Sets the queue in an empty state
+
+(Note: These are helper functions no need to implement.)
+
+ 
+
+Task 1: Implement enqueue
+Complete the enqueue function that adds an integer element to the rear of the queue.
+
+ 
+
+Task 2: Implement dequeue
+Complete the dequeue function that removes and returns the element from the front of the queue.

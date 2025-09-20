@@ -355,7 +355,13 @@ int countQueueByMovie(TicketQueue tq, char movieTitle[]) {
 // Maintains the order of customers during transfer
 void transferPriorityCustomers(CinemaSystem* cs) {
     // TODO: Implement this function
+    TicketList regTrav = cs->regularQueue.front;
+    for(int i=0; i < cs->regularQueue.queueSize; i++){
+        if(regTrav->customerInfo.age >= 60){
+            enqueue(&cs->regularQueue, regTrav->ticketInfo, regTrav->customerInfo);
+        }
     
+    }
     
 }
 

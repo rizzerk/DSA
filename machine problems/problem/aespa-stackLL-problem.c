@@ -163,4 +163,4 @@ void displayAlbum(Album ae){
         printf("%-5d %-20s %-10d\n", track++, trav->songInfo.songTitle, trav->songInfo.releaseYear);
     }
     printf("===============================\n\n");
-}
+} 

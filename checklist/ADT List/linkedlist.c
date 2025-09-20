@@ -156,8 +156,8 @@ void freeList(LinkedList *L) {
 void SortList(LinkedList *L){
     for(Node *i = L->head; i != NULL; i = i->next){
         Node *min = i;
-        for(Node *j = i; j != NULL; j = j->next){
-            if(j->data < i->data){
+        for(Node *j = i->next; j != NULL; j = j->next){
+            if(j->data < min->data){
                 min = j;
             }
         }

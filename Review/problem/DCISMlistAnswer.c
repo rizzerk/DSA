@@ -51,7 +51,7 @@ returned to the calling function. No other user-defined function is created exce
 Assume that there is enough space in memory for all the records.
 */
 
-ComboList createList(LinkList D)
+ComboList createList(LinkList* D)
 {
     ComboList dcism;
     LinkList *trav, temp;

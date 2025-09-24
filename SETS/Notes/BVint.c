@@ -33,7 +33,7 @@ void initSet(Set S){
 }
 
 
-
+//finds or contains
 int isMember(Set S, int elem){
     return S[elem] == 1 ? 1 : 0;
 }

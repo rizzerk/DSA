@@ -102,12 +102,4 @@ int isEqual(Set A, Set B){
     return 1;
 }
 
-void display(Set S){
-     for(int i = 0; i < MAX; i++){
-        if(S[i] == 1){
-            printf("%d ", i);
-        }
-    }
-
-    printf("\n");
-}
+void display(Set S);

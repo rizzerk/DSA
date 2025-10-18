@@ -49,16 +49,10 @@ void deleteMem( Dictionary A, int data){
         SET temp = *trav;
         *trav = temp->next;
         free(temp);
-        printf("Deleted %d from the dictionary\n");
-    }else{
-        printf("%d is not found in the dictionary\n");
     }
 
 }
-
-int isMember(Dictionary A, int data){
-    
-}
+int isMember(Dictionary A, int data);
 
 
 int main(){

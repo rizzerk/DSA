@@ -40,9 +40,6 @@ void insertUnique( Dictionary A, int data){
 
 }
 
-void deleteMem( Dictionary A, int data);
-int isMember(Dictionary A, int data);
-
 
 int main(){
     Dictionary A;

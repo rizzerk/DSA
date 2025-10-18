@@ -26,22 +26,16 @@ void insertUnique( Dictionary A, int data){
     int indx = Hash(data);
     SET newNode, *trav;
 
+    newNode = (SET)malloc(sizeof(struct node));
+
     for(trav = &A[indx]; *trav != NULL && (*trav)->data != data;  trav = &(*trav)->next);
-    if(*trav == NULL){ 
-        newNode = (SET)malloc(sizeof(struct node));
-        if (newNode == NULL) {
-        printf("Memory allocation failed.\n");
-        return;
-        }
+    if(newNode != NULL && *trav == NULL){ 
         newNode->data = data;
         newNode->next = NULL;
         *trav = newNode;
     }
 
 }
-
-void deleteMem( Dictionary A, int data);
-int isMember(Dictionary A, int data);
 
 
 int main(){

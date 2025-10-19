@@ -1,0 +1,8 @@
+Hash(A) = 1
+Hash(B) = 4
+Hash(C) = 9
+Hash(D) = 9
+Hash(E) = 0
+Hash(F) = 3
+Hash(G) = 4
+Hash(H) = 3

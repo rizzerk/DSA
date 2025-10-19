@@ -1,0 +1,17 @@
+1. If the Hash() evenly distributes N elements to S subsets (or groups):
+  a.) How many on the average is the number of elements in each subnet?
+      - N/S;
+  b.) What is the running time each of the operations insert, delete, and member?
+      - O(1);
+2. What is the effect if all N elements are assigned to 1 subnet only?
+    - it will behave like simple linked list and in worst case scenario the operations will have a running time of O(N);
+
+
+    Hash(A) = 1
+Hash(B) = 4
+Hash(C) = 9
+Hash(D) = 9
+Hash(E) = 0
+Hash(F) = 3
+Hash(G) = 4
+Hash(H) = 3

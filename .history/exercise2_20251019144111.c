@@ -62,7 +62,7 @@ int isMember(Dictionary A, int data){
 
     for(trav = &A[indx]; *trav != NULL && (*trav)->data != data; trav = &(*trav)->next);
 
-    return *trav != NULL;
+    return *trav != NULL:
 }
 
 

@@ -15,7 +15,7 @@ void initDictionary(Dictionary A){
 //member
 
 int Hash(char c){
-    return c % MAX;
+    return c % 10;
 }
 
 int isMember(Dictionary A, char c){
@@ -25,7 +25,7 @@ int isMember(Dictionary A, char c){
 
         return (sl <  MAX && A[indx] == c);
 }
-int insert(Dictionary A, char c){
+void insert(Dictionary A, char c){
     int indx, sl; 
 
     for(indx = Hash(c), sl =1; sl < MAX && A[indx] != c  && A[indx]!= EMPTY && A[indx] != DELETED; indx =(indx + 1)% MAX, sl++){}
@@ -34,8 +34,7 @@ int insert(Dictionary A, char c){
         A[indx] = c;
     }
 
-    int searchLength = (indx - Hash(c) + MAX) % MAX + 1;
-    return searchLength; //or sl?;
+    
 }
 void deleteMem(Dictionary A, char c){
     int indx, sl;
@@ -45,6 +44,10 @@ void deleteMem(Dictionary A, char c){
     if(sl < MAX && A[indx] == c){
         A[indx] = DELETED;
     }
+}
+
+int getSL(Dictionary A, char c){
+    
 }
 
 int main(){

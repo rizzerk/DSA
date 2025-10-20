@@ -34,8 +34,8 @@ int insert(Dictionary A, char c){
         A[indx] = c;
     }
 
-    int searchLength = (indx - Hash(c) + MAX) % MAX + 1;
-    return searchLength; //or sl?;
+        int searchLength = (indx - Hash(c) + MAX) % MAX + 1;
+        return searchLength; //or sl;
 }
 void deleteMem(Dictionary A, char c){
     int indx, sl;

@@ -6,3 +6,4 @@ Hash(E) = 0
 Hash(F) = 3
 Hash(G) = 4
 Hash(H) = 3
+

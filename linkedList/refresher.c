@@ -38,7 +38,7 @@ LL initListv2(void){
 void insertSorted(LL *list, int data){
     LL newNode, *trav;
 
-    for(trav = list; *trav != NULL && (*trav)->data <= data; trav = &(*trav)->next);
+    for(trav = list; *trav != NULL && (*trav)->data <= data; trav = &(*trav)->next){}
     newNode = (LL)malloc(sizeof(node));
 
     if(newNode != NULL){
@@ -61,7 +61,7 @@ void insertFirst(LL *list, int data){
 void insertLast(LL *list,  int data){
     LL newNode, *trav;
 
-    for(trav = list; *trav != NULL; trav = &(*trav)->next);
+    for(trav = list; *trav != NULL; trav = &(*trav)->next){}
     newNode = (LL)malloc(sizeof(node));
     if(newNode != NULL){
         newNode->next = *trav;
@@ -72,7 +72,7 @@ void insertLast(LL *list,  int data){
 
 void deleteMem(LL *list,  int data){
     LL temp, *trav;
-    for(trav = list; *trav != NULL && (*trav)->data != data; trav = &(*trav)->next);
+    for(trav = list; *trav != NULL && (*trav)->data != data; trav = &(*trav)->next){}
     if(*trav != NULL){
         temp = *trav;
         *trav = (*trav)->next;
@@ -104,7 +104,7 @@ int deleteLast(LL *list){
     }
 
     LL temp,  *trav;
-    for( trav = list ; (*trav)->next != NULL; trav =  &(*trav)-> next);
+    for( trav = list ; (*trav)->next != NULL; trav =  &(*trav)-> next){}
     temp = *trav;
     *trav = NULL;
     int retval = temp->data;
@@ -141,7 +141,7 @@ void displayList(LL head){
 
 int isFound(LL *list, int data){
     LL *trav;
-     for(trav = list; *trav != NULL && (*trav)->data != data; trav = &(*trav)->next);
+     for(trav = list; *trav != NULL && (*trav)->data != data; trav = &(*trav)->next){}
 
      return *trav != NULL;
 }

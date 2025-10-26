@@ -1,9 +1,3 @@
-//how to run: 
-//compile in terminal:
-//    clang main.c dict.c -o main
-//run:
-//    ./main
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

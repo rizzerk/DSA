@@ -15,7 +15,7 @@ int hashFunction(int rgb[3]){
 }
 
 void createDictionary(Dictionary *dict){
-    for(int i=0; i < PALETTE_SIZE; i++){
+    for(int i=0; i < PALETTE_SIZE - 1; i++){
         dict->buckets[i] = NULL;
     }
 }
@@ -36,7 +36,7 @@ void insertColor(Dictionary *dict, Color newColor){
         newnode->data = newColor;
         newnode->next = dict->buckets[indx];
         dict->buckets[indx] = newnode;
-        printf("Inserted '%s' (RGB: %d, %d, %d) into bucket [%d].\n", 
+        printf("Inserted '%s' (RGB: %d, %d, %d) into bucket [%d].", 
             //just to be sure that head is updated lol
             dict->buckets[indx]->data.colorName,
             dict->buckets[indx]->data.RGBVal[0],
@@ -49,13 +49,12 @@ void insertColor(Dictionary *dict, Color newColor){
 
 Color* searchColor(Dictionary *dict, int rgb[3]){
 int indx = hashFunction(rgb);
-printf("Searching for RGB (%d, %d, %d) in bucket [%d]...\n", rgb[0], rgb[1],rgb[2], indx);
 Node *trav = dict->buckets[indx];
 while (trav != NULL)
 {
     if (trav->data.RGBVal[0] == rgb[0] && trav->data.RGBVal[1] == rgb[1] && trav->data.RGBVal[2] == rgb[2])
     {
-        return &trav->data;
+        return 1;
     }else{
         trav = trav->next;
     }

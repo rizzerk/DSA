@@ -49,7 +49,6 @@ void insertColor(Dictionary *dict, Color newColor){
 
 Color* searchColor(Dictionary *dict, int rgb[3]){
 int indx = hashFunction(rgb);
-printf("Searching for RGB (%d, %d, %d) in bucket [%d]...\n", rgb[0], rgb[1],rgb[2], indx);
 Node *trav = dict->buckets[indx];
 while (trav != NULL)
 {

@@ -32,18 +32,17 @@ void insertColor(Dictionary *dict, Color newColor){
     //insert at head;
     int indx = hashFunction(newColor.RGBVal);
     Node **trav;
-    for(trav = &dict->buckets[indx]; *trav != NULL && strcmp(newColor.colorName, (*trav)->data.colorName) != 0; trav = &(*trav)->next);
-    if(*trav != NULL){
-        //color already exists;
-        return;
-    }
+    // for(trav = &dict->buckets[indx]; *trav != NULL && strcmp(newColor.colorName, (*trav)->data.colorName) != 0; trav = &(*trav)->next);
+    // if(*trav != NULL){
+    //     //color already exists;
+    //     return;
+    // }
 //or
 
-// if (searchColor(dict, newColor.RGBVal) != NULL) {
-//     // Color with same RGB already exists
-//     return;
-// }
-//but this will print the printf("searching...")
+if (searchColor(dict, newColor.RGBVal) != NULL) {
+    // Color with same RGB already exists
+    return;
+}
 
     Node *newnode = createNode(newColor);
     if(newnode != NULL){

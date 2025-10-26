@@ -37,16 +37,9 @@ void insertColor(Dictionary *dict, Color newColor){
         //color already exists;
         return;
     }
-//or
-
-// if (searchColor(dict, newColor.RGBVal) != NULL) {
-//     // Color with same RGB already exists
-//     return;
-// }
-//but this will print the printf("searching...")
-
     Node *newnode = createNode(newColor);
     if(newnode != NULL){
+        newnode->data = newColor;
         newnode->next = dict->buckets[indx];
         dict->buckets[indx] = newnode;
         printf("Inserted '%s' (RGB: %d, %d, %d) into bucket [%d].\n", 
@@ -73,6 +66,6 @@ while (trav != NULL)
         trav = trav->next;
     }
 }
-return NULL;
+return 0;
 
 }

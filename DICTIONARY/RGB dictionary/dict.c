@@ -21,13 +21,44 @@ void createDictionary(Dictionary *dict){
 }
 
 Node* createNode(Color newColor){
+    Node *newnode = (Node *)malloc(sizeof(Node));
+    newnode->data = newColor;
+    newnode->next = NULL;
 
+    return newnode;
 }
 
 void insertColor(Dictionary *dict, Color newColor){
-
+    //insert at head;
+    int indx = hashFunction(newColor.RGBVal);
+    Node *newnode = createNode(newColor);
+    if(newnode != NULL){
+        newnode->data = newColor;
+        newnode->next = dict->buckets[indx];
+        dict->buckets[indx] = newnode;
+        printf("Inserted '%s' (RGB: %d, %d, %d) into bucket [%d].", 
+            //just to be sure that head is updated lol
+            dict->buckets[indx]->data.colorName,
+            dict->buckets[indx]->data.RGBVal[0],
+            dict->buckets[indx]->data.RGBVal[1],
+            dict->buckets[indx]->data.RGBVal[2],
+            indx
+        );
+    }
 }
 
 Color* searchColor(Dictionary *dict, int rgb[3]){
+int indx = hashFunction(rgb);
+Node *trav = dict->buckets[indx];
+while (trav != NULL)
+{
+    if (trav->data.RGBVal[0] == rgb[0] && trav->data.RGBVal[1] == rgb[1] && trav->data.RGBVal[2] == rgb[2])
+    {
+        return 1;
+    }else{
+        trav = trav->next;
+    }
+}
+return 0;
 
 }

@@ -1,0 +1,79 @@
+Tree:
+- A tree is a collection of elements
+- Elements = NODES
+- One of the nodes = ROOT
+- Hierarichal (Hierarchy) Structure of nodes.
+- Parenthood
+
+Recursive Defition of a Tree
+- A node in itself is tree, and in this case, it is also the root.
+- Suppose N is a node, and T1, T2, T3,... TN, are all trees with roots N1, N2, N3 respectively.
+  We can create a new tree by making N a parent of Nodes N1, N2, N3.
+- Therefore N1, N2, N3, become children of node N.
+
+Path
+- The path from node N1 to node Nk is a sequence of nodes in a tree such that Ni is the parent of Ni+1 for 1 <= i < k
+- Length of the Path is one less than the number of nodes in the path.
+- A path of length zero exists as the path of every node to itself.
+
+Ancestor and Descendant
+- If there is a path from node A to node B, then A is an ancestor of B, and B is a descendant of A.
+- A node is both an ancestor and descendant of itself.
+- Proper Ancestor = An ancestor to a node other than itself.
+- Proper Descendant = A descendant to a node other than itself.
+- The root is the only node without a proper ancestor.
+
+Leaf, Null (Tree), Subtree
+- A leaf is a node with NO PROPER descendants.
+- A null tree is a tree with no nodes (^).
+- A subtree of a tree is a node, together with all of its descendants.
+
+Height and Depth
+- Height of a node in a tree is the LENGTH of the LONGEST path from that node to a leaf.
+- Depth of a node is the length of the unique path from the root to that node.
+
+Order of Nodes
+- The children of a node is ORDERED from left -> right.
+
+Ordering of Siblings
+- The left->right order of siblings can be extended to compare any two nodes that are not related by ancestor-descendant relationship
+- If A and B are siblings, and A is to the left of B, then all the descendants of A are to the left of all the descendants of B.
+
+Ordering of Nodes (Traversal)
+- Preorder 
+   -> the root of T
+   -> nodes of T1 in pre-order
+   -> nodes of T2 in pre-order and so on...
+- Postorder
+   -> the nodes of T1 in postorder.
+   -> nodes of T2 in postorder
+   -> and so on...
+   -> the root of T.
+- Inorder
+   -> the nodes of T1 in inorder.
+   -> the root of T.
+   -> the nodes of T2 in inorder.
+   -> and so on.
+
+
+ADT Tree Operations
+- Parent(T, N) - This function returns the parent of the node N in tree T. If N is the root, return NULL.
+- Leftmost_child(T, N) - This function returns the leftmost child of node N in tree T. If N is a leaf, return NULL.
+- Right_sibling(T, N) - This function returns the right sibling of node N in tree T. Right sibling is defined to be the node R having the same parent P, as node N and node R lies immediately to the right of node N in the ordering of the children of node P.
+- Label(T, N) - This function returns the label(value) of node N in tree T.
+- Create(V, T1, T2, T3, TN) - This function created a new root R with label V, and gives it I children, which are the roots of T1, T2, T3, TN in order from left to right.
+- Root(T) - This function returns the node that is the roof of the tree T. This returns null for a null tree.
+- Initialize(T) - This prepares the tree to be used for the first time.
+- Makenull(T) - This makes the Tree T to be an empty tree.
+
+Implementation of Trees
+- Parent Pointer Representation
+  -> Array Representation of trees.
+  -> T[x] = y, if y is the parent of node x.
+  -> T[x] = -1, if x is the root node.
+  -> T[x] = -2, if x is not a node in the tree.
+- List of Children
+  -> Linked list representation of the tree.
+  -> Uses an array of header cells, indexed by nodes.
+  -> Each header points to a linked list of elements which are nodes.
+  -> The elements on the list headed by header[x] are the children of node x.

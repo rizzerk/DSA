@@ -180,7 +180,6 @@ void deleteElem(Dictionary D, char key) {
   }
   //search
   int *trav;
-  //lazy but tricky version
   for(trav = &D[h].link; *trav != -1 && D[*trav].data != key; trav = &D[*trav].link){}
   if(*trav != -1){
     int temp = *trav;
